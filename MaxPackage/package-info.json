@@ -1,0 +1,31 @@
+{
+	"author" : "SoundSweepsBy",
+	"authors" : [],
+	"categories" : [],
+	"description" : "Experiments, works in progress, patchers and utilities.",
+	"displayname" : "SSB MaxPackages",
+	"extends" : "",
+	"extensible" : 0,
+	"homepatcher" : "",
+	"max_version_max" : "none",
+	"max_version_min" : "7.0",
+	"name" : "SSBPackage",
+	"os" : 	{
+		"macintosh" : 		{
+			"platform" : [ "ia32", "x64" ],
+			"min_version" : "10.7.x"
+		}
+,
+		"windows" : 		{
+			"platform" : [ "ia32", "x64" ],
+			"min_version" : "7"
+		}
+
+	}
+,
+	"readme" : "",
+	"tags" : [ "audio", "utility", "max for live" ],
+	"version" : "0.0.0",
+	"versions" : null,
+	"website" : "http://soundsweepsby.com/"
+}
