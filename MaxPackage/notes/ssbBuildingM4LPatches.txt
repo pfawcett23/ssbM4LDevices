@@ -1,0 +1,13 @@
+Max4Live Dev Notes:
+
+1 - All patches need to use the same grid size.
+
+2 - Grid Size will be 5. 5.
+
+3 - All UI bpatchers need to use consistent sizing. 
+- whole panel:   Height: 160 (32 squares at standardized grid size of 5)
+- half panel:    Height: 80 (16 squares at standardized grid size of 5)
+- quarter panel: Height: 40 (8 squares at standardized grid size of 5)
+- eighth panel:  Height: 20 (4 squares at standardized grid size of 5)
+
+4 - All UI bpatchers need to have a 1 standard grid squiare border on all sides.

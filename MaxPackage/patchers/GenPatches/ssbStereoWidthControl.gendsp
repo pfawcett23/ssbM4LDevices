@@ -1,0 +1,182 @@
+{
+	"patcher" : 	{
+		"fileversion" : 1,
+		"appversion" : 		{
+			"major" : 6,
+			"minor" : 0,
+			"revision" : 4
+		}
+,
+		"rect" : [ 34.0, 478.0, 600.0, 450.0 ],
+		"bgcolor" : [ 0.9, 0.9, 0.9, 1.0 ],
+		"bglocked" : 0,
+		"openinpresentation" : 0,
+		"default_fontsize" : 10.0,
+		"default_fontface" : 0,
+		"default_fontname" : "Arial",
+		"gridonopen" : 0,
+		"gridsize" : [ 5.0, 5.0 ],
+		"gridsnaponopen" : 0,
+		"statusbarvisible" : 2,
+		"toolbarvisible" : 1,
+		"boxanimatetime" : 200,
+		"imprint" : 0,
+		"enablehscroll" : 1,
+		"enablevscroll" : 1,
+		"devicewidth" : 0.0,
+		"description" : "",
+		"digest" : "",
+		"tags" : "",
+		"title" : "untitled",
+		"boxes" : [ 			{
+				"box" : 				{
+					"annotation" : "right channel",
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"hint" : "right channel",
+					"id" : "obj-7",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 140.0, 405.0, 33.0, 18.0 ],
+					"text" : "out 2",
+					"varname" : "right_channel_out"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"annotation" : "width",
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"hint" : "width (0 = mono, < 1 decrese stereo width, 1 no change, > 1 increase stereo width, max 2)",
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 390.0, 14.0, 27.0, 18.0 ],
+					"text" : "in 3",
+					"varname" : "width"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"code" : "// calculate scale coefficient\ntmp = 1 / 2;\nif ( ( in3 >= 0 ) && ( in3 < 2 ) )\r\n{\r\n\ttmp = 1 / ( 1 + in3 );\r\n}\r\ncoef_M = 1 * tmp;\ncoef_S = in3 * tmp;\r\n\n// then do this per sample\nm = (in1 + in2) * coef_M;\ns = (in2 - in1) * coef_S;\n\nout1 = m - s;\nout2 = m + s;",
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"id" : "obj-5",
+					"maxclass" : "codebox",
+					"numinlets" : 3,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 30.0, 75.0, 340.0, 255.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"annotation" : "left channel",
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"hint" : "left channel",
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 50.0, 14.0, 27.0, 18.0 ],
+					"text" : "in 1",
+					"varname" : "left_channel"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"annotation" : "right channel",
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"hint" : "right channel",
+					"id" : "obj-2",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 110.0, 14.0, 27.0, 18.0 ],
+					"text" : "in 2",
+					"varname" : "right_channel"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"annotation" : "left channel",
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"hint" : "left channel",
+					"id" : "obj-4",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 15.0, 405.0, 33.0, 18.0 ],
+					"text" : "out 1",
+					"varname" : "left_channel_out"
+				}
+
+			}
+ ],
+		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 1 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-2", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-4", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-5", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 2 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-6", 0 ]
+				}
+
+			}
+ ],
+		"dependency_cache" : [ 			{
+				"name" : "codebox.mxo",
+				"type" : "iLaX"
+			}
+ ]
+	}
+
+}
